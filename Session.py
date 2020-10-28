@@ -15,8 +15,15 @@ class Session():
         self.status = 0
         self.phrases = [
             Pat("The student came in with <item> <status>."),
+            Pat("<gender:his> <aspect> is <comment>"),
         ]
-    def output(self):
+        self.waitingTree = []
+    def analyze(self):
         pass
+    def output(self):
+        if (len(self.phrases)):
+            print(self.phrases[0])
+        else:
+            print("----(End)----")
     def input(self, sentence: str):
         pass

@@ -3,6 +3,7 @@
 
 class Elt():
     def __init__(self, name: str, auto: str=None, index: int=None, content: str=None):
+        # Todo: parse auto pattern after parsing Pat
         if auto is None:
             if ti := name.find(':') != -1:
                 auto = name[ti+1:]
@@ -16,7 +17,15 @@ class Elt():
         return f'{self.name}{": " + self.content if self.content else ""}'
 
 class Pat():
-    def __init__(self, raw: str, attr: list=None, tag: str="<>"):
+    """
+    raw, attr || fromElt
+    default: Pat("abc<xyz>")
+    default: Pat("abc", [Elt("xyz")])
+    fromElt: Pat(fromElt=Elt("<xyz>"))
+    """
+    def __init__(self, raw: str=None, attr: list=None, tag: str="<>", fromElt: Elt=None):
+        if not fromElt is None and raw is None:
+            raw = fromElt.name
         if attr is None:
             self.raw, self.attr = self.elementize(raw, attr, tag)
         else:
