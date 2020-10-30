@@ -1,7 +1,4 @@
-
-class Session:
-    def __init__(self) -> None:
-        self.schema = []
+from Session import Session
 
 if __name__ == "__main__":
     pass
