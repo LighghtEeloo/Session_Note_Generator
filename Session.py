@@ -72,14 +72,6 @@ class Session:
                 if not item in self.schema['paragraph']:
                     return False
         return True
-    def is_empty_paragraph(self):
-        if not self.loaded:
-            return None
-        for item_ses in self.schema['session']['para_list']:
-            for item in item_ses:
-                if self.valid_str(item):
-                    return True
-        return False
     @staticmethod
     def valid_str(string: str):
         return string != "" and not string.isspace()
@@ -103,7 +95,7 @@ class Session:
         if index is None:
             para_list = self.schema['session']['para_list']
             index = len(para_list)
-            if index == 0 or not self.is_empty_paragraph():
+            if index == 0:
                 para_list.append({}.fromkeys(self.paragraph, ""))
                 print("Appended para.")
             else:
@@ -114,10 +106,10 @@ class Session:
 
     def input(self) -> bool:
         """
-        return if not identical
+        create and continue if not identical
         """
         if not self.is_identical():
-            return False
+            self.create()
         self.input_prop('info')
         while True:
             self.input_para()

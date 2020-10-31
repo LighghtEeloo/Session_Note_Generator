@@ -4,7 +4,7 @@ from Utils import *
 
 class Phraser():
     """
-    Contains session note prototype.
+    Session note Phraser.
     """
     def __init__(self) -> None:
         """
@@ -14,8 +14,9 @@ class Phraser():
         self.statusTree = ["opening", "main", "conclusion"]
         self.status = 0
         self.phrases = [
-            Pat("The student came in with <item> <status>."),
-            Pat("<gender:his> <aspect> is <comment>"),
+            # Pat("The student came in with <item> <status>."),
+            # Pat("<gender:his> <aspect> is <comment>"),
+            Pat("The student came in with her <item>, discussing <topic>. <thesis> <merit> However, <setback> After some discussion, we agreed that <gender: his> needs to <discussion>. <conclusion> After the session, <afterwards>")
         ]
         self.waitingTree = []
     def analyze(self):

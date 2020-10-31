@@ -9,6 +9,7 @@
     "info": [
         "date & time",
         "student",
+        "gender",
         "consultant",
         "item",
         "topic / theme"
@@ -24,22 +25,23 @@
     ],
     "session": {
         "info": {
-            "date & time": "2020.10.31",
-            "student": "Anna",
-            "consultant": "Alex",
-            "item": "paper draft",
-            "topic / theme": "tributary system"
+            "date & time": "2020.10.31, 18:30",
+            "student": "Ehaema",
+            "gender": "f",
+            "consultant": "Jiang Yuchen",
+            "item": "draft",
+            "topic / theme": "humor"
         },
         "para_list": [
             {
-                "merit": "",
-                "setback": "",
-                "discussion": "",
+                "merit": "Her opening is very arousing, leading directly to the topic.",
+                "setback": "She didn't mention the relationship between humor and her material.",
+                "discussion": "polish her explanation on the material",
                 "conclusion": ""
             }
         ],
         "summary": {
-            "afterwards": ""
+            "afterwards": "She left with a complete idea on how to add more details."
         }
     }
 }
