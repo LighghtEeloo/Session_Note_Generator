@@ -127,8 +127,15 @@ class Session:
         self.input_prop('summary')
         return True
 
+    def output(self, verbose: bool=False) -> None:
+        if verbose:
+            print(json.dumps(self.schema, indent=4))
+        else:
+            print(json.dumps(self.schema['session'], indent=4))
+
 if __name__ == "__main__":
     session = Session(default_dir_schema).load()
-    print(json.dumps(session.schema, indent=4))
+    session.output(verbose=True)
     session.input()
+    session.output()
     session.dump()
