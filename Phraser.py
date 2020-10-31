@@ -2,7 +2,7 @@
 # !/usr/bin/python3
 from Utils import *
 
-class Session():
+class Phraser():
     """
     Contains session note prototype.
     """
