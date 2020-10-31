@@ -1,1 +1,45 @@
-{"info": ["date & time", "student", "consultant", "item", "topic / theme"], "paragraph": ["merit", "setback", "discussion", "conclusion"], "summary": ["afterwards"], "session": {"info": {"date & time": "", "student": "", "consultant": "", "item": "", "topic / theme": ""}, "para_list": [], "summary": {"afterwards": ""}}}
+{
+    "stem": [
+        "info",
+        "summary"
+    ],
+    "variant": [
+        "paragraph"
+    ],
+    "info": [
+        "date & time",
+        "student",
+        "consultant",
+        "item",
+        "topic / theme"
+    ],
+    "paragraph": [
+        "merit",
+        "setback",
+        "discussion",
+        "conclusion"
+    ],
+    "summary": [
+        "afterwards"
+    ],
+    "session": {
+        "info": {
+            "date & time": "2020.10.31",
+            "student": "Anna",
+            "consultant": "Alex",
+            "item": "paper draft",
+            "topic / theme": "tributary system"
+        },
+        "para_list": [
+            {
+                "merit": "",
+                "setback": "",
+                "discussion": "",
+                "conclusion": ""
+            }
+        ],
+        "summary": {
+            "afterwards": ""
+        }
+    }
+}
