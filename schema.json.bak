@@ -15,6 +15,7 @@
         "topic / theme"
     ],
     "paragraph": [
+        "thesis",
         "merit",
         "setback",
         "discussion",
@@ -34,7 +35,8 @@
         },
         "para_list": [
             {
-                "merit": "Her opening is very arousing, leading directly to the topic.",
+                "thesis": "Her paper was about humor in disney movies.",
+                "merit": "Her opening was very arousing, leading directly to the topic.",
                 "setback": "She didn't mention the relationship between humor and her material.",
                 "discussion": "polish her explanation on the material",
                 "conclusion": ""

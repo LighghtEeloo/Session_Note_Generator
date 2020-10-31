@@ -5,7 +5,7 @@ import shutil
 
 default_dir_schema = 'schema.json'
 
-class Session:
+class Schema:
     """
     {[clear] -> load} -> [create] -> (safe) edit -> dump
     note: [] is optional, {} is init
@@ -125,9 +125,25 @@ class Session:
         else:
             print(json.dumps(self.schema['session'], indent=4))
 
+    @staticmethod
+    def dumps(obj):
+        return json.dumps(obj, indent=4)
+
+    def content_fixed(self) -> dict:
+        if not (self.loaded and self.is_identical()):
+            return None
+        content = {}
+        content.update(self.schema['session']['info'])
+        content.update(self.schema['session']['summary'])
+        content.update(self.schema['session']['para_list'][0])
+        # Todo: remove para_list
+        # print(json.dumps(content, indent=4))
+        return content
+
 if __name__ == "__main__":
-    session = Session(default_dir_schema).load()
-    session.output(verbose=True)
-    session.input()
-    session.output()
-    session.dump()
+    schema = Schema(default_dir_schema).load()
+    # schema.output(verbose=True)
+    # schema.input()
+    # schema.output()
+    schema.content()
+    schema.dump()

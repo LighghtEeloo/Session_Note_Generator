@@ -4,10 +4,13 @@
 class Elt():
     def __init__(self, name: str, auto: str=None, index: int=None, content: str=None):
         # Todo: parse auto pattern after parsing Pat
+        """
+        name: "gender", auto: "his"
+        """
         if auto is None:
-            if ti := name.find(':') != -1:
-                auto = name[ti+1:]
-                name = name[:ti+1]
+            if (ti := name.find(':')) != -1:
+                auto = name[ti+1:].strip()
+                name = name[:ti]
         self.name = name
         self.auto = auto
         self.index = index
@@ -35,7 +38,12 @@ class Pat():
     def __repr__(self) -> str:
         raw_lst = "".join(("--", self.raw, "--")).split("<>")
         for i in range(len(self.attr)-1,-1,-1):
-            raw_lst.insert(i+1,f"<{self.attr[i]}>")
+            raw_lst.insert(i+1,f"<{self.attr[i]}>" if self.attr[i].content is None else self.attr[i].content)
+        return "".join(raw_lst)[2:-2]
+    def output(self) -> str:
+        raw_lst = "".join(("--", self.raw, "--")).split("<>")
+        for i in range(len(self.attr)-1,-1,-1):
+            raw_lst.insert(i+1,f"<{self.attr[i]}>" if self.attr[i].content is None else self.attr[i].content)
         return "".join(raw_lst)[2:-2]
     @staticmethod
     def search(raw: str, tag: str="<>") -> tuple:
@@ -80,3 +88,7 @@ class Pat():
         raw, lst = Pat.search_iter(raw, tag)
         # print(f'>> {raw}, {list(map(Elt,lst))}')
         return raw, list(map(Elt,lst))
+
+if __name__ == "__main__":
+    print(Pat("The student came in with her <item>, discussing <topic>. <thesis> <merit> However, <setback> After some discussion, we agreed that <gender: his> needs to <discussion>. <conclusion> After the session, <afterwards>"))
+    print(Elt("gender: his"))
